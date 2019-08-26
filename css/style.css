@@ -9,3 +9,7 @@
 .concluido {
     text-decoration: line-through;
 }
+
+.executando {
+    color: orange;
+}

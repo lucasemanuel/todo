@@ -24,7 +24,7 @@
                 <h2>Lista de Tarefas</h2>
                 <ul class="list-group">
                     <li class="list-group-item" v-for="(tarefa, index) in tarefas">
-                        <span v-bind:class="{ concluido: tarefa.concluido }">{{ tarefa.nome }}</span>        
+                        <span @click.right="confirmarDelete(tarefa)" v-bind:class="{ concluido: tarefa.concluido, executando: tarefa.executando}" v-on:click="executando(tarefa)">{{ tarefa.nome }}</span>        
                         <span class="float-right"><input class="form-check-input" type="checkbox" v-on:click="concluirTarefa(tarefa)"></span>
                         <button type="button" class="btn btn-outline-danger btn-sm" v-on:click="deletarTarefa(index)">Deletar</button>
                     </li>

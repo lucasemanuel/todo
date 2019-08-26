@@ -5,7 +5,8 @@ var app = new Vue({
         tarefas: [
             {
                 nome: 'Primeira Tarefa',
-                concluido: false
+                concluido: false,
+                executando: false
             }
         ]
     },
@@ -23,6 +24,13 @@ var app = new Vue({
         },
         deletarTarefa(index) {
             this.tarefas.splice(index, 1);
+        },
+        executando(tarefa) {
+            tarefa.executando = !tarefa.executando;
+        },
+        confirmarDelete(tarefa){
+            resultado = window.confirm("Você realmente quer deletar essa tarefa?");
+            if(resultado) this.deletarTarefa(tarefa);
         }
     }
 });
