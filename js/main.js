@@ -2,11 +2,27 @@ var app = new Vue({
     el: '#tarefas',
     data: {
         tarefa: '',
-        tarefas: []
+        tarefas: [
+            {
+                nome: 'Primeira Tarefa',
+                concluido: false
+            }
+        ]
     },
     methods: {
-        addTarefa(){
-            this.tarefas.push(this.tarefa);
+        adicionarTarefa() {
+            this.tarefas.push({
+                nome: this.tarefa,
+                concluido: false
+            });
+            this.tarefa = "";
+            document.querySelector("#input-tarefa").focus();
+        },
+        concluirTarefa(tarefa) {
+            tarefa.concluido = !tarefa.concluido;
+        },
+        deletarTarefa(index) {
+            this.tarefas.splice(index, 1);
         }
     }
 });

@@ -12,10 +12,10 @@
     <div class="container" id="tarefas">
         <div class="row">
             <div class="col">
-                <h1>Cadastro de Tarefa</h1>
+                <h1>Adicionar Tarefa</h1>
                 <form class="form-inline" onsubmit="return false">
-                    <input type="text" class="form-control mr-2" placeholder="Tarefa" v-model="tarefa">
-                    <button class="btn btn-primary" type="submit" v-on:click="addTarefa">ADD</button>
+                    <input type="text" class="form-control mr-2" placeholder="Tarefa" v-model="tarefa" id="input-tarefa">
+                    <button class="btn btn-primary" type="submit" v-on:click="adicionarTarefa">ADD</button>
                 </form>
             </div>
         </div>
@@ -23,8 +23,10 @@
             <div class="col list">
                 <h2>Lista de Tarefas</h2>
                 <ul class="list-group">
-                    <li class="list-group-item" v-for="tarefa in tarefas">
-                        {{ tarefa }}
+                    <li class="list-group-item" v-for="(tarefa, index) in tarefas">
+                        <span v-bind:class="{ concluido: tarefa.concluido }">{{ tarefa.nome }}</span>        
+                        <span class="float-right"><input class="form-check-input" type="checkbox" v-on:click="concluirTarefa(tarefa)"></span>
+                        <button type="button" class="btn btn-outline-danger btn-sm" v-on:click="deletarTarefa(index)">Deletar</button>
                     </li>
                 </ul>
             </div>

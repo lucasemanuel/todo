@@ -5,3 +5,7 @@
 .list {
     margin-top: 2rem;
 }
+
+.concluido {
+    text-decoration: line-through;
+}
