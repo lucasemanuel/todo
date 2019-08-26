@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div class="container" id="todo">
+    <div class="container" id="tarefas">
         <div class="row">
             <div class="col">
                 <h1>Cadastro de Tarefa</h1>
-                <form class="form-inline">
-                    <input type="text" class="form-control mr-2" placeholder="Tarefa">
-                    <button class="btn btn-primary" type="submit">ADD</button>
+                <form class="form-inline" onsubmit="return false">
+                    <input type="text" class="form-control mr-2" placeholder="Tarefa" v-model="tarefa">
+                    <button class="btn btn-primary" type="submit" v-on:click="addTarefa">ADD</button>
                 </form>
             </div>
         </div>
@@ -23,13 +23,15 @@
             <div class="col list">
                 <h2>Lista de Tarefas</h2>
                 <ul class="list-group">
-                    <li class="list-group-item">
-
+                    <li class="list-group-item" v-for="tarefa in tarefas">
+                        {{ tarefa }}
                     </li>
                 </ul>
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./js/main.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
